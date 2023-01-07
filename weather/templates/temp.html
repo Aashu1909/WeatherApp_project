@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Weather Application
+{% endblock title %}
+
+{% block main_body %}
+<div class="wrapper active">
+    <header>
+      <a href="{% url 'home' %}">
+        <i class="bx bx-left-arrow-alt"></i>
+      </a>
+      Weather App
+    </header>   
+      <section class="weather-part ">
+        {% if haze %}
+        <img src="{% static 'icons\haze.svg' %}" alt="Weather Icon" />
+        {% elif clear %}
+        <img src="{% static 'icons\clear.svg' %}" alt="Weather Icon" />
+        {% elif cloud %}
+        <img src="{% static 'icons\cloud.svg' %}" alt="Weather Icon" />
+        {% elif rain %}
+        <img src="{% static 'icons\rain.svg' %}" alt="Weather Icon" />
+        {% elif snow %}
+        <img src="{% static 'icons\snow.svg' %}" alt="Weather Icon" />
+        {% elif storm %}
+        <img src="{% static 'icons\storm.svg' %}" alt="Weather Icon" />
+        {% endif %}
+        
+        <div class="temp">
+          <span class="numb">{{ temperature }}</span>
+          <span class="deg">°</span>C
+        </div>
+        <div class="weather">{{ description }}</div>
+        <div class="location">
+          <i class="bx bx-map"></i>
+          <span>{{ city }}, {{ country }}</span>
+        </div>
+        <div class="bottom-details">
+          <div class="column feels">
+            <i class="bx bxs-thermometer"></i>
+            <div class="details">
+              <div class="temp">
+                <span class="numb-2">{{ feels_like }}</span>
+                <span class="deg">°</span>C
+              </div>
+              <p>Feels like</p>
+            </div>
+          </div>
+          <div class="column humidity">
+            <i class="bx bxs-droplet-half"></i>
+            <div class="details">
+              <span>{{humidity}}%</span>
+              <p>Humidity</p>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+{% endblock main_body%}

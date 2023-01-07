@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Weather Application
+{% endblock title %}
+
+
+{% block main_body %}
+<div class="wrapper">
+    <header><i class="bx bx-left-arrow-alt"></i>Weather App</header>
+    <section class="input-part">
+      <p class="info-txt"></p>
+      <div class="content">
+        <form action="{% url 'getWeatherCity' %}" method="POST">
+          {% csrf_token%}
+          <input type="text" spellcheck="false" name="cityName" placeholder="Enter City Name" required/>
+          <button type="submit" style="margin-top:2% ;">Search</button>
+        </form>
+        <div class="separator"></div>
+        <form action="{% url 'getWeatherCrd' %}" method="POST">
+          {% csrf_token%}
+          <button type="submit" >Location auto-detect</button>
+        </form>
+      </div>
+    </section>
+  </div>
+{% endblock main_body%}

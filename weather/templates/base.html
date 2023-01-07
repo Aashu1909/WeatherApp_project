@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Linking BoxIcon for Icon -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'icons/favicon.svg' %}" />
+    <title>{% block title %} {% endblock title %} </title>
+  </head>
+  <body>
+    <!-- dark mode toggle -->
+    <div class="dark-mode">
+      <span class="dark-mode-btn">
+        <i class="bx bx-moon"></i>
+      </span>
+    </div>
+
+    <!--=========== COLOR PICKER ===========-->
+<!-- 
+    <div class="color-palette">
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+      <span class="theme-color"></span>
+    </div> -->
+    <!-- main content -->
+    {%block main_body %}
+    {% endblock main_body %}
+
+    
+    
+    <!--=========== SCRIPTS ===========-->
+    <script>{% block js%} {% endblock js %}
+    </script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+  </body>
+</html>
